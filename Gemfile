@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'pg'
 gem 'decent_exposure', '~> 3.0'
+gem "pundit"
+gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

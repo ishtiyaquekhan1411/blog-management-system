@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
-  expose :posts, -> { Post.includes(:user) }
+  expose :posts, -> { Post.includes(:user).published }
 
   def index
-    @posts = posts.published
     render template: 'posts/index'
   end
 end

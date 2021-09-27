@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     post '/register', to: 'users/registrations#create'
   end
   resources :users, only: %i[edit update]
-  resources :posts
+  resources :posts do
+    delete :delete_main_image_attachment, on: :member
+    put :publish, on: :member
+  end
 end

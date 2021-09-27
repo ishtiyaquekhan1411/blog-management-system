@@ -8,15 +8,44 @@ en:
         email_address: &email_address Email address
         password: &password Password
         log_in: *log_in
+  general:
+    access_denied: You are not authorized to access this page.
   posts:
+    create:
+      new_post_created: New Post created.
+    destroy:
+      deleted_successfully: Post deleted successfully.
+    edit:
+      edit_post: Edit Post
+      publish: Publish
+    form:
+      attached_file: "The currently attached file is %{file_name}. Click here to replace this file."
+      click_to_replace_file: "Click here to replace %{file_name}."
+      description: &description Description
+      click_to_add_file: "Click here to add upload new image."
+      check_to_remove_image: Check to remove main image
+      pick_new_file: No file has been uploaded yet. Please pick a file.
+      title: Title
+      submit: Submit
     index:
-      add_new_post: Add New Post
+      add_new_post: &add_new_post Add New Post
       description: Description
+      edit: Edit
+      delete: Delete
       no_published_post: No published posts
       no_posts_created: You have not created any posts. Please create one.
       title: Title
       published_at: Published At
       user: User
+    new:
+      add_new_post: *add_new_post
+    show:
+      not_found: Post not found.
+      description: *description
+    publish:
+      post_published_successfully: Post published successfully.
+    update:
+      post_updated: Post updated.
   shared:
     nav:
       posts: All Posts
