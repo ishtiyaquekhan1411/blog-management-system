@@ -1,0 +1,49 @@
+en:
+  devise:
+    sessions:
+      new:
+        log_in: &log_in Log in
+        edit_profile: Edit Profile
+      form:
+        email_address: &email_address Email address
+        password: &password Password
+        log_in: *log_in
+  posts:
+    index:
+      add_new_post: Add New Post
+      description: Description
+      no_published_post: No published posts
+      no_posts_created: You have not created any posts. Please create one.
+      title: Title
+      published_at: Published At
+      user: User
+  shared:
+    nav:
+      posts: All Posts
+      my_posts: My Posts
+      sign_out: Sign Out
+      sign_in: Sign In
+      sign_up: &sign_up Sign Up
+  users:
+    edit:
+      record_not_found: User not found.
+      first_name: &first_name First Name
+      last_name: &last_name Last Name
+      email_address: *email_address
+      password: *password
+      confirm_password: &confirm_password Confirm Password
+      update: Update
+    update:
+      user_details_updated_successfully: User details updated successfully.
+    registrations:
+      new:
+        sign_up: *sign_up
+      form:
+        first_name: *first_name
+        last_name: *last_name
+        email_address: *email_address
+        password: *password
+        confirm_password: *confirm_password
+        sign_up: *sign_up
+      create:
+        signed_up_successfully: You have successfully signed up

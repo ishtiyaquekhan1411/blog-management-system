@@ -1,0 +1,45 @@
+<div class="min-h-screen flex mt-10 justify-center bg-gray-50 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <h1 class="text-4xl font-normal leading-normal text-green-800">Posts</h1>
+    <% if @posts.present? %>
+      <table class="shadow-lg bg-white">
+        <tr>
+          <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.title') %></th>
+          <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.description') %></th>
+          <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.user') %></th>
+          <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"><%= t('.published_at') %></th>
+          <% if params[:own_posts] %>
+            <th class="bg-blue-100 border text-left px-8 py-4" />
+            <th class="bg-blue-100 border text-left px-8 py-4" />
+          <% end %>
+        </tr>
+        <% @posts.each do |post| %>
+          <tr>
+            <td class="border px-8 py-4">
+              <%= link_to truncate(post.title, length: 10), post_path(post.id), class: ' text-blue-600 hover:text-blue-800 visited:text-purple-600' %>
+            </td>
+            <td class="border px-8 py-4">
+              <%= link_to truncate(post.description, length: 20), post_path(post.id), class: ' text-blue-600 hover:text-blue-800 visited:text-purple-600' %>
+            </td>
+            <td class="border px-8 py-4 whitespace-nowrap"><%= full_name(post.user) %></td>
+              <td class="border px-6"><%= post.published_at.to_formatted_s(:short) %></td>
+            <% if params[:own_posts] %>
+              <td class="border px-6">
+                <%= link_to t('.edit'), edit_post_path(post.id), class: 'h-15 px-6 py-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-md focus:shadow-outline hover:bg-indigo-800' %>
+              </td>
+              <td class="border px-6">
+                <%= link_to t('.delete'), edit_post_path(post.id), class: 'h-15 px-3 py-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-md focus:shadow-outline hover:bg-red-800' %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <% if params[:own_posts] %>
+        <p class="text-2xl font-semibold text-red-500 subpixel-antialiased"><%= t('.no_posts_created') %></p>
+      <% else %>
+        <p class="text-2xl font-semibold text-red-500 subpixel-antialiased"><%= t('.no_published_post') %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+Rails.application.routes.draw do
+  get 'home/index'
+  root to: "home#index"
+
+  devise_for :users, only: :sessions
+  devise_scope :user do 
+    get '/register', to: 'users/registrations#new', as: :new_user_register
+    post '/register', to: 'users/registrations#create'
+  end
+  resources :users, only: %i[edit update]
+  resources :posts
+end
