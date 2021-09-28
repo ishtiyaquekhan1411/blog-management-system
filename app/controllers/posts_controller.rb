@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     post.user = current_user
-    if post.save!
+    if post.save
       redirect_to(posts_path(own_posts: true), notice: t('.new_post_created'))
     else
       render(:new)
@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def update
     if post.update(post_params)
+      post.main_image.purge if post.remove_main_image?
       redirect_to post_path(post.id), notice: t('.post_updated')
     else
       render :edit
@@ -30,10 +31,10 @@ class PostsController < ApplicationController
   end
 
   def publish
-    if post.draft?
-      post.published!
+    if post.draft? && post.published!
       redirect_to post_path(post.id), notice: t('.post_published_successfully')
     else
+      flash.now[:alert] = t('.already published')
       render :edit
     end
   end
@@ -41,7 +42,12 @@ class PostsController < ApplicationController
   private
 
   def get_all_posts
-    params[:own_posts] ? current_user.posts.includes(:user) : Post.includes(:user).published
+    posts = if params[:own_posts]
+              current_user.posts.includes(:user)
+            else
+              Post.includes(:user).published
+            end
+    posts.paginate(page: params[:page], per_page: 10)
   end
 
   def post_params

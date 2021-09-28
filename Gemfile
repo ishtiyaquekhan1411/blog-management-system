@@ -34,6 +34,7 @@ gem 'decent_exposure', '~> 3.0'
 gem "pundit"
 gem 'image_processing', '~> 1.2'
 gem 'active_storage_validations'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,3 +62,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "will_paginate", "~> 3.3"

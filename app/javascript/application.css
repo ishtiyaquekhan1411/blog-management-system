@@ -25,3 +25,19 @@
   --transform-scale-x: 1;
   --transform-scale-y: 1;
 }
+
+.pagination {
+  @apply flex justify-center;
+  @apply my-2 py-2;
+}
+
+@import "~tailwindcss/utilities";
+
+.pagination * {
+  @apply px-3 py-2 mx-2;
+  @apply text-gray-700 no-underline bg-white rounded-lg;
+}
+
+.pagination a:hover {
+  @apply font-semibold text-gray-200 bg-gray-700;
+}

@@ -16,7 +16,7 @@
       <% end %>
       <% if post.main_image.attached? %>
         <div class="mt-10">
-          <%= image_tag post.main_image, height: '320', width: '320', style: 'border-radius:0.5em;' %>
+          <%= link_to image_tag(post.main_image, height: '320', width: '320', style: 'border-radius:0.5em;'), post.main_image %>
         </div>
       <% end %>
     </div>
