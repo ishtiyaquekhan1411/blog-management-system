@@ -43,15 +43,16 @@ class PostsController < ApplicationController
 
   def get_all_posts
     posts = if params[:own_posts]
-              current_user.posts.includes(:user)
+              current_user.posts.includes(:user, :tags)
             else
-              Post.includes(:user).published
+              Post.includes(:user, :tags).published
             end
     posts.paginate(page: params[:page], per_page: 10)
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :main_image, :remove_main_image)
+    params.require(:post)
+      .permit(:title, :description, :main_image, :remove_main_image, :tag_list)
   end
 
   def authorize_user!

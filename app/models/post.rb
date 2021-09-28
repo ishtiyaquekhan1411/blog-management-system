@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
   attr_accessor :remove_main_image
+  acts_as_taggable_on :tags
 
   enum status: %i[draft published], _default: 'draft'
 

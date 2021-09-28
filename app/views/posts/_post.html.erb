@@ -4,6 +4,7 @@
   </td>
   <td class="border px-8 py-4 whitespace-nowrap"><%= full_name(post.user) %></td>
   <td class="border px-6"><%= post.published_at&.to_formatted_s(:short) %></td>
+  <td class="border px-6"><%= tag_list(post) %></td>
   <% if params[:own_posts] %>
     <td class="border px-6">
       <%= link_to t('.edit'), edit_post_path(post.id), class: 'h-15 px-6 py-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-md focus:shadow-outline hover:bg-indigo-800' %>

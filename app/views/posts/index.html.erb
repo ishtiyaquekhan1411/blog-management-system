@@ -7,16 +7,13 @@
           <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.title') %></th>
           <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.user') %></th>
           <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"><%= t('.published_at') %></th>
+          <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"><%= t('.tags') %></th>
           <% if params[:own_posts] %>
             <th class="bg-blue-100 border text-left px-8 py-4" />
             <th class="bg-blue-100 border text-left px-8 py-4" />
           <% end %>
         </tr>
-        <% posts.each do |post| %>
-          <% cache post do %>
-            <%= render post %>
-          <% end %>
-        <% end %>
+        <%= render posts %>
       </table>
       <div class="text-center my-4">
         <%= will_paginate posts %>
