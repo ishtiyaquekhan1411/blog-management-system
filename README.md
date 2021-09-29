@@ -22,3 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+### Start Application USING FOREMAN
+
+* In development mode:
+```ruby
+foreman start -f Procfile.dev
+```
+
+* In production mode:
+```ruby
+PORT=3000 foreman start -f Procfile
+```
