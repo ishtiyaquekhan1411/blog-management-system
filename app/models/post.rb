@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
 
-  attr_accessor :remove_main_image
   acts_as_taggable_on :tags
 
   enum status: %i[draft published], _default: 'draft'
@@ -16,10 +15,6 @@ class Post < ApplicationRecord
   before_update :write_published_at, if: :will_save_change_to_status?
 
   scope :own_posts, -> (user) { where(user_id: user.id) }
-
-  def remove_main_image?
-    remove_main_image == '1'
-  end
 
   private
 

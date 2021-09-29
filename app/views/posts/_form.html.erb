@@ -20,10 +20,6 @@
     <%= f.file_field :main_image, accept: 'image/png,image/jpg,image/jpeg', class: "appearance-none rounded-none  block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :main_image)}" %>
     <%= inline_errors post, :main_image %>
   </div>
-  <% if post.main_image.attached? %>
-    <%= f.label :remove_main_image, t('.check_to_remove_image'), class: 'text-gray-700 font-bold mb-7 inline-flex text-sm" for="grid-main-image' %>
-    <%= f.check_box :remove_main_image, class: 'form-checkbox' %>
-  <% end %>
   <div class="mx-3 mb-6 relative">
     <%= f.label :tag_list, t('.tags'), class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-tags' %>
     <%= f.text_field :tag_list, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if post.save
       redirect_to(posts_path(own_posts: true), notice: t('.new_post_created'))
     else
-      render(:new)
+      render :new
     end
   end
 
@@ -23,7 +23,6 @@ class PostsController < ApplicationController
 
   def update
     if post.update(post_params)
-      post.main_image.purge if post.remove_main_image?
       redirect_to post_path(post.id), notice: t('.post_updated')
     else
       render :edit
@@ -37,6 +36,12 @@ class PostsController < ApplicationController
       flash.now[:alert] = t('.already published')
       render :edit
     end
+  end
+
+  def delete_main_image_attachment
+    image = ActiveStorage::Attachment.find_by(id: params[:id])
+    image&.purge
+    redirect_back(fallback_location: request.referer, alert: t('.image_deleted_successfully'))
   end
 
   private

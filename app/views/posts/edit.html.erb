@@ -3,11 +3,14 @@
     <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
       <%= t('.edit_post') %>
     </h2>
-    <% if post.draft? %>
-      <div>
-        <%= link_to t('.publish_post'), publish_post_path(post.id), method: :put, class: 'group relative flex justify-center py-2 px-2 border border-transparent text-md font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500' %>
+      <div class="flex justify-evenly">
+        <% if post.draft? %>
+          <%= link_to t('.publish_post'), publish_post_path(post.id), method: :put, class: 'group relative py-2 px-10 border border-transparent text-md font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500' %>
+        <% end %>
+        <% if post.main_image.attached? %>
+          <%= link_to t('.remove_main_image'), delete_main_image_attachment_post_url(post.main_image.id), method: :delete, class: 'group relative py-2 px-10 border border-transparent text-md font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+        <% end %>
       </div>
-    <% end %>
     <%= render 'form', post: post %>
   </div>
 </div>

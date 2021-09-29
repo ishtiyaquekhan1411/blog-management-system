@@ -15,9 +15,12 @@ en:
       new_post_created: New Post created.
     destroy:
       deleted_successfully: Post deleted successfully.
+    delete_main_image_attachment:
+      image_deleted_successfully: Image deleted successfully.
     edit:
       edit_post: Edit Post
-      publish: Publish
+      publish_post: Publish Post
+      remove_main_image: Remove Main Image
     form:
       attached_file: "The currently attached file is %{file_name}. Click here to replace this file."
       click_to_replace_file: "Click here to replace %{file_name}."
@@ -39,6 +42,7 @@ en:
       title: Title
       tags: Tags
       published_at: Published At
+      posts: Posts
       user: User
     new:
       add_new_post: *add_new_post
