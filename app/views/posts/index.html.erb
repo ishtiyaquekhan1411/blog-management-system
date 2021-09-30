@@ -1,31 +1,22 @@
-<div class="min-h-screen flex mt-10 justify-center mr-10 bg-gray-50 lg:px-8">
-  <div class="max-w-md w-full space-y-8">
-    <h1 class="text-4xl font-normal leading-normal text-center text-green-800"><%= t('.posts') %></h1>
-    <% if posts.present? %>
-      <table class="shadow-lg bg-white">
-        <tr>
-          <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.title') %></th>
-          <th class="bg-blue-100 border text-left px-8 py-4"><%= t('.user') %></th>
-          <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"><%= t('.published_at') %></th>
-          <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap"><%= t('.tags') %></th>
-          <% if params[:own_posts] %>
-            <th class="bg-blue-100 border text-left px-8 py-4" />
-            <th class="bg-blue-100 border text-left px-8 py-4" />
-          <% end %>
-        </tr>
-        <% cache [posts, params[:own_posts]] do %>
-          <%= render posts %>
-        <% end %>
-      </table>
-      <div class="text-center my-4">
-        <%= will_paginate posts %>
-      </div>
-    <% else %>
-      <% if params[:own_posts] %>
-        <p class="text-2xl font-semibold text-red-500 subpixel-antialiased"><%= t('.no_posts_created') %></p>
-      <% else %>
-        <p class="text-2xl font-semibold text-red-500 subpixel-antialiased"><%= t('.no_published_post') %></p>
+<div class="container mx-auto px-10">
+  <% if posts.present? %>
+    <div class="m-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <% cache [posts, params[:own_posts]] do %>
+        <%= render posts %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    <div class="text-center my-4">
+      <%= will_paginate posts %>
+    </div>
+  <% else %>
+    <div class="text-center p-10 text-blue-700" role="alert">
+      <p class="text-sm text-lg">
+        <% if params[:own_posts] %>
+          <%= t('.no_posts_created') %>
+        <% else %>
+          <%= t('.no_published_post') %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
 </div>

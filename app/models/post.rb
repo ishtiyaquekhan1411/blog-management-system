@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :main_image, content_type: %w[image/png image/jpg image/jpeg],
-    dimension: { width: 1000, height: 1500 }
+    dimension: { width: { min: 100, max: 800 }, height: { min: 100, max: 800 } }
 
   before_update :write_published_at, if: :will_save_change_to_status?
 

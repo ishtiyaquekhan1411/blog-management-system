@@ -48,11 +48,11 @@ class PostsController < ApplicationController
 
   def get_all_posts
     posts = if params[:own_posts]
-              current_user.posts.includes(:user, :tags)
+              current_user.posts.includes(:user, :tags, :rich_text_description)
             else
-              Post.includes(:user, :tags).published
+              Post.includes(:user, :tags, :rich_text_description).published
             end
-    posts.paginate(page: params[:page], per_page: 10)
+    posts.paginate(page: params[:page], per_page: 12)
   end
 
   def post_params

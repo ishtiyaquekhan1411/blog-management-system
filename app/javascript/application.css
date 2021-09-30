@@ -41,3 +41,8 @@
 .pagination a:hover {
   @apply font-semibold text-gray-200 bg-gray-700;
 }
+
+.trix-content {
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}

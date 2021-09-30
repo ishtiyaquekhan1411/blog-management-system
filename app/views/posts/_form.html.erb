@@ -1,16 +1,16 @@
-<%= form_for(post, html: { class: 'w-full max-w-lg' }) do |f| %>
-  <div class="mx-3 mb-6">
-    <%= f.label :title, t('.title'), class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-title' %>
-    <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: t('.title'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :title)}" %>
+<%= form_for(post) do |f| %>
+  <div class="max-w-full mx-3 mb-6">
+    <%= f.label :title, t('.title'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-title' %>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: t('.title'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-600 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :title)}" %>
     <%= inline_errors post, :title %>
   </div>
   <div class="mx-3 mb-6">
-    <%= f.label :description, t('.description'), class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-description' %>
-    <%= f.rich_text_area :description, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>
+    <%= f.label :description, t('.description'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-description' %>
+    <%= f.rich_text_area :description, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-600 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>
     <%= inline_errors post, :description %>
   </div>
   <div class="mx-3 mb-6 relative">
-    <%= f.label :main_image, t('.main_image'), class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-main-image' do %>
+    <%= f.label :main_image, t('.main_image'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-main-image' do %>
       <% if f.object.main_image.attached? %>
         <%= t('.attached_file', file_name: f.object.main_image.filename) %>
       <% else %>
@@ -21,7 +21,7 @@
     <%= inline_errors post, :main_image %>
   </div>
   <div class="mx-3 mb-6 relative">
-    <%= f.label :tag_list, t('.tags'), class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-tags' %>
+    <%= f.label :tag_list, t('.tags'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-tags' %>
     <%= f.text_field :tag_list, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>
   </div>
   <div class="actions">

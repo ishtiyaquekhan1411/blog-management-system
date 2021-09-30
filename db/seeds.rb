@@ -15,7 +15,8 @@ end
     title: Faker::Book.title,
     description: Faker::Lorem.paragraphs(number: 5).join("\n"),
     user: User.order('RANDOM()').first,
-    status: Post.statuses.keys.sample
+    status: Post.statuses.keys.sample,
+    tag_list: Faker::Lorem.words
   )
   post.update(published_at: Time.now) if post.published?
 end

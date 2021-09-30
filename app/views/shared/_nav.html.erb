@@ -9,7 +9,7 @@
         <% if user_signed_in? %>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <%= link_to t('.my_posts'), posts_path(own_posts: true), class: 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' %>
+              <%= link_to t('.manage_posts'), posts_path(own_posts: true), class: 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' %>
               <%= link_to t('.add_new_post'), new_post_path, class: 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' %>
             </div>
           </div>

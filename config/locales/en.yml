@@ -18,9 +18,9 @@ en:
     delete_main_image_attachment:
       image_deleted_successfully: Image deleted successfully.
     edit:
-      edit_post: Edit Post
-      publish_post: Publish Post
-      remove_main_image: Remove Main Image
+      edit: Edit
+      publish: Publish
+      remove_image: Remove Image
     form:
       attached_file: "The currently attached file is %{file_name}. Click here to replace this file."
       click_to_replace_file: "Click here to replace %{file_name}."
@@ -49,6 +49,9 @@ en:
     show:
       not_found: Post not found.
       description: *description
+    post:
+      author: 'Author:'
+      read_more: '...Read More'
     publish:
       post_published_successfully: Post published successfully.
     update:
@@ -56,7 +59,7 @@ en:
   shared:
     nav:
       posts: All Posts
-      my_posts: My Posts
+      manage_posts: Manage Posts
       sign_out: Sign Out
       sign_in: Sign In
       sign_up: &sign_up Sign Up
@@ -69,6 +72,7 @@ en:
       password: *password
       confirm_password: &confirm_password Confirm Password
       update: Update
+      edit_profile: Edit Profile
     update:
       user_details_updated_successfully: User details updated successfully.
     registrations:
