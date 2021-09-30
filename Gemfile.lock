@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/faker-ruby/faker.git
-  revision: 45cb8e87fc199cd72e4122d8ae75a1808b7b3ba3
-  branch: master
-  specs:
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,6 +92,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
+    fabrication (2.22.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     foreman (0.87.2)
     globalid (0.5.2)
@@ -177,6 +172,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rexml (3.2.5)
     ruby-vips (2.1.3)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -245,7 +241,8 @@ DEPENDENCIES
   capybara (>= 3.26)
   decent_exposure (~> 3.0)
   devise
-  faker!
+  fabrication
+  faker
   foreman
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
@@ -255,6 +252,7 @@ DEPENDENCIES
   pundit
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rexml
   sass-rails (>= 6)
   selenium-webdriver
   spring

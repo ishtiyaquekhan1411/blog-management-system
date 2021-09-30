@@ -33,7 +33,7 @@ gem 'pg'
 gem 'decent_exposure', '~> 3.0'
 gem "pundit"
 gem 'active_storage_validations'
-gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,6 +58,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rexml'
+  gem 'fabrication'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
