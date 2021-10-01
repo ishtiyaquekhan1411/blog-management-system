@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'edit user' do
     user = Fabricate(:user)
 
-    get edit_user_url(user), params: { user: {email: 'new@email.com'} }
+    get edit_user_url(user), params: { user: { email: 'new@email.com' } }
 
     assert_response :success
   end

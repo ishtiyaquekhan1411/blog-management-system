@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 10 random user with password 123456.
 10.times do
   User.create!(

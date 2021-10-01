@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PostPolicyTest < ActiveSupport::TestCase
@@ -45,7 +47,7 @@ class PostPolicyTest < ActiveSupport::TestCase
 
   private
 
-    def permit(action, current_user, record)
-      self.class.to_s.gsub(/Test/, '').constantize.new(current_user, record).public_send("#{action.to_s}?")
-    end
+  def permit(action, current_user, record)
+    self.class.to_s.gsub(/Test/, '').constantize.new(current_user, record).public_send("#{action}?")
+  end
 end

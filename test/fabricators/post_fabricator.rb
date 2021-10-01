@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Fabricator(:post) do
   user { Fabricate(:user) }
   title { Faker::Book.title }

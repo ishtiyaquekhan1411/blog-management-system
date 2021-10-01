@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
@@ -32,7 +34,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'edit post' do
     post = Fabricate(:post, user: @user)
-    valid_main_image = valid_image_file
 
     get edit_post_path(post)
     assert_response :success
@@ -72,15 +73,15 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   private
 
-    def valid_image_file
-      @valid_image_file ||= blob_for('valid_main_image.jpg').signed_id
-    end
+  def valid_image_file
+    @valid_image_file ||= blob_for('valid_main_image.jpg').signed_id
+  end
 
-    def blob_for(name)
-      ActiveStorage::Blob.create_and_upload!(
-        io: File.open(Rails.root.join(file_fixture(name))),
-        content_type: 'image/jpg',
-        filename: name
-      )
-    end
+  def blob_for(name)
+    ActiveStorage::Blob.create_and_upload!(
+      io: File.open(Rails.root.join(file_fixture(name))),
+      content_type: 'image/jpg',
+      filename: name
+    )
+  end
 end

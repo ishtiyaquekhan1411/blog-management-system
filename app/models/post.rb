@@ -1,5 +1,6 @@
-class Post < ApplicationRecord
+# frozen_string_literal: true
 
+class Post < ApplicationRecord
   acts_as_taggable_on :tags
 
   enum status: %i[draft published], _default: 'draft'
@@ -10,11 +11,11 @@ class Post < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :main_image, content_type: %w[image/png image/jpg image/jpeg],
-    dimension: { width: { min: 100, max: 800 }, height: { min: 100, max: 800 } }
+                         dimension: { width: 1000, height: 1500 }
 
   before_update :write_published_at, if: :will_save_change_to_status?
 
-  scope :own_posts, -> (user) { where(user_id: user.id) }
+  scope :own_posts, ->(user) { where(user_id: user.id) }
 
   private
 

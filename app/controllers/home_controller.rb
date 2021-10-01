@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-  expose :posts, -> {
-    Post.includes(:user, :tags, :rich_text_description)
-      .published.paginate(page: params[:page], per_page: 12)
+  expose :posts, lambda {
+    Post.includes(:user, :tags).published.paginate(page: params[:page], per_page: 10)
   }
 
   def index

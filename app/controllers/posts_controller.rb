@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  expose :posts, -> { get_all_posts }
+  expose :posts, -> { all_posts }
   expose :post
 
   before_action :authenticate_user!, except: %i[index show]
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
 
   private
 
-  def get_all_posts
+  def all_posts
     posts = if params[:own_posts]
               current_user.posts.includes(:user, :tags, :rich_text_description)
             else
@@ -63,7 +65,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post)
-      .permit(:title, :description, :main_image, :remove_main_image, :tag_list)
+          .permit(:title, :description, :main_image, :remove_main_image, :tag_list)
   end
 
   def authorize_user!
