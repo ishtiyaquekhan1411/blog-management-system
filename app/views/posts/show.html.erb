@@ -1,13 +1,13 @@
 <div class="mt-10 rounded overflow-hidden shadow-lg container mx-auto">
   <div class="py-12 px-4 sm:px-6 lg:px-8">
-    <% if post.main_image.attached? %>
+    <% if @post.main_image.attached? %>
       <div class="w-6/12 sm:w-4/12">
-        <img src="<%=(url_for(post.main_image.variant(resize: '100x100')))%>" class="shadow rounded-full max-w-full h-auto align-middle border-none" />
+        <img src="<%=(url_for(@post.main_image.variant(resize: '100x100')))%>" class="shadow rounded-full max-w-full h-auto align-middle border-none" />
       </div>
     <% end %>
     <div class="min-w-0">
       <h2 class="text-2xl font-bold leading-7 text-gray-500 sm:text-3xl sm:truncate">
-        <%= post.title %>
+        <%= @post.title %>
       </h2>
       <span class="h-min w-min whitespace-nowrap py-1 mt-2 bg-green-500 px-2 text-md rounded-full flex items-center text-sm text-white">
         <svg class="inline flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -21,18 +21,18 @@
               c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
           </g>
         </svg>
-        <%= full_name(post.user) %>
+        <%= full_name(@post.user) %>
       </span>
       <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
-        <% if post.published_at.present? %>
+        <% if @post.published_at.present? %>
           <div class="mt-2 flex items-center text-sm text-gray-500">
             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
             </svg>
-            <%= post.published_at&.to_formatted_s(:long) %>
+            <%= t('.published_at', time: @post.published_at&.to_s(:db)) %>
           </div>
         <% end %>
-        <% if post.tags.present? %>
+        <% if @post.tags.present? %>
           <div class="mt-2 flex items-center text-sm text-gray-500">
             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
             <%= tag_list(post) %>
@@ -46,7 +46,7 @@
       <%= t('.description') %>
     </h3>
     <div class="px-7 py-5">
-      <%= post.description %>
+      <%= @post.description %>
     </div>
   </div>
 </div>

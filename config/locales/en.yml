@@ -41,17 +41,18 @@ en:
       no_posts_created: You have not created any posts. Please create one.
       title: Title
       tags: Tags
-      published_at: Published At
       posts: Posts
       user: User
     new:
       add_new_post: *add_new_post
     show:
-      not_found: Post not found.
       description: *description
+      not_found: Post not found.
+      published_at: "Published at: %{time}"
     post:
       author: 'Author:'
       read_more: '...Read More'
+      published_at: "Published at: %{time}"
     publish:
       post_published_successfully: Post published successfully.
     update:

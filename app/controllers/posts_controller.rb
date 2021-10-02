@@ -29,6 +29,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+
+    redirect_to root_path, alert: t('.not_found') unless @post
+  end
+
   def publish
     if post.draft? && post.published!
       redirect_to post_path(post.id), notice: t('.post_published_successfully')
