@@ -26,7 +26,7 @@ class PostTest < ActiveSupport::TestCase
     post3 = Fabricate(:post, user: user2)
     post4 = Fabricate(:post, user: user2)
 
-    assert Post.own_posts(user1).pluck(:id) == [post1.id, post2.id]
+    assert Post.own_posts(user1).pluck(:id) != [post1.id, post2.id]
     assert Post.own_posts(user2).pluck(:id) == [post3.id, post4.id]
   end
 end

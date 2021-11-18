@@ -1,0 +1,41 @@
+CommitMsg:
+  ALL:
+    requires_files: false
+    quiet: false
+  CapitalizedSubject:
+    enabled: true
+    on_warn: fail
+  EmptyMessage:
+    enabled: true
+  MessageFormat:
+    enabled: true
+
+PreCommit:
+  AuthorEmail:
+    enabled: false
+    pattern: '^[^@]+@+.com$'
+  BundleCheck:
+    enabled: false
+  RuboCop:
+    enabled: true
+    on_warn: fail
+    command: ['bundle', 'exec', 'rubocop']
+  ForbiddenBranches:
+    enabled: true
+    branch_patterns: ['master']
+  BundleInstall:
+    enabled: true
+  LineEndings:
+    enabled: true
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+     - '**/db/structure.sql' # Ignore trailing whitespace in generated files
+
+PrePush:
+  Minitest:
+    enabled: true
+
+PostCheckout:
+  BundleInstall:
+    enabled: true
