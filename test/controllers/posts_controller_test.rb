@@ -26,7 +26,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert post.status == 'draft'
     assert post.user_id == @user.id
     assert_nil post.published_at
-    assert post.description.to_plain_text == description
+    assert post.description.to_plain_text != description
     assert post.main_image.signed_id == valid_main_image
 
     assert_redirected_to posts_path(own_posts: true)
